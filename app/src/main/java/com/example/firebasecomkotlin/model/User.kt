@@ -1,3 +1,4 @@
 package com.example.firebasecomkotlin.model
 
-data class User (var name: String? = null, var type: String? = null)
+data class User (var idUsuario: String? = null,
+                 var type: String? = null)
