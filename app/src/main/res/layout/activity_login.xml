@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editSenha"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="senha"
@@ -38,17 +38,17 @@
         app:layout_constraintTop_toBottomOf="@id/editEmail"/>
 
     <Button
-        android:id="@+id/buttonEntrar"
+        android:id="@+id/buttonEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
     <TextView
-        android:id="@+id/criarC"
+        android:id="@+id/tVCreatAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CriarContaActivity">
+    tools:context=".CreateAccountActivity">
 
 
     <TextView
@@ -29,7 +29,7 @@
         tools:layout_editor_absoluteY="30dp" />
 
     <EditText
-        android:id="@+id/editSenha"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="senha"
@@ -39,37 +39,37 @@
        app:layout_constraintTop_toBottomOf="@id/editEmail"/>
 
     <EditText
-        android:id="@+id/editNome"
+        android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="nome"
         android:layout_margin="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editSenha"/>
+        app:layout_constraintTop_toBottomOf="@id/editPassword"/>
 
     <Button
-        android:id="@+id/buttonCriar"
+        android:id="@+id/buttonCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:text="Cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rdGrupUsuarioEmpresa" />
+        app:layout_constraintTop_toBottomOf="@+id/rdGrupUserEntity" />
 
     <RadioGroup
-        android:id="@+id/rdGrupUsuarioEmpresa"
+        android:id="@+id/rdGrupUserEntity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSenha">
+        app:layout_constraintTop_toBottomOf="@+id/editPassword">
 
         <RadioButton
-            android:id="@+id/rdUsuario"
+            android:id="@+id/rdUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Usuario"
@@ -77,7 +77,7 @@
             android:textStyle="bold" />
 
         <RadioButton
-            android:id="@+id/rdEmpresa"
+            android:id="@+id/rdEntity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"

@@ -5,23 +5,23 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firebasecomkotlin.databinding.ActivityCriarContaBinding
-import com.example.firebasecomkotlin.firebase.ConfigFireBase
+import com.example.firebasecomkotlin.firebase.SettingsFireBase
 import com.example.firebasecomkotlin.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class CriarContaActivity : AppCompatActivity() {
+class CreateAccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCriarContaBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var db: DatabaseReference
-    private val firebase = ConfigFireBase()
+    private val firebase = SettingsFireBase()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_criar_conta)
+        setContentView(R.layout.activity_crieate_account)
 
         binding = ActivityCriarContaBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -31,17 +31,17 @@ class CriarContaActivity : AppCompatActivity() {
         binding.buttonCriar.setOnClickListener {
 
             val email = binding.editEmail.text.toString()
-            val senha = binding.editSenha.text.toString()
+            val password = binding.editSenha.text.toString()
 
             val radioGroup = binding.rdGrupUsuarioEmpresa
-            val radioButtonEmpresa = binding.rdEmpresa
-            val radioButtonUsuario = binding.rdUsuario
+            val radioButtonEntity = binding.rdEmpresa
+            val radioButtonUser = binding.rdUsuario
             val selectedId = radioGroup.checkedRadioButtonId
 
             if (!email.isEmpty()) {
-                if (!senha.isEmpty()) {
+                if (!password.isEmpty()) {
 
-                    auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(this) {
+                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
                         if (it.isSuccessful) {
                             Toast.makeText(
                                 applicationContext,
@@ -59,18 +59,18 @@ class CriarContaActivity : AppCompatActivity() {
                 }
             }
 
-            val usuario = User()
-            if (selectedId == radioButtonUsuario.id) {
-                usuario.type = "usuario"
-                startActivity(Intent(this, InicialDoadorActivity::class.java))
-            } else if (selectedId == radioButtonEmpresa.id) {
-                usuario.type = "empresa"
-                startActivity(Intent(this, InicialEntidadeActivity::class.java))
+            val user = User()
+            if (selectedId == radioButtonUser.id) {
+                user.type = "usuario"
+                startActivity(Intent(this, InitialDonorActivity::class.java))
+            } else if (selectedId == radioButtonEntity.id) {
+                user.type = "empresa"
+                startActivity(Intent(this, InitialEntityActivity::class.java))
             }
 
             db = FirebaseDatabase.getInstance().reference
-            val nomeFire = db.child("Userss").child(firebase.getIdUsuario())
-            nomeFire.setValue(usuario)
+            val realDataBase = db.child("Userss").child(firebase.getIdUser())
+            realDataBase.setValue(user)
 
         }
     }

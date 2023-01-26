@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.criarC.setOnClickListener {
-            startActivity(Intent(this, CriarContaActivity::class.java))
+            startActivity(Intent(this, CreateAccountActivity::class.java))
 
         }
 
