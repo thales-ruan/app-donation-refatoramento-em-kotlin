@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firebasecomkotlin.databinding.ActivityCriarContaBinding
+import com.example.firebasecomkotlin.firebase.ConfigFireBase
 import com.example.firebasecomkotlin.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -15,6 +16,8 @@ class CriarContaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCriarContaBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var db: DatabaseReference
+    private val firebase = ConfigFireBase()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,14 +69,10 @@ class CriarContaActivity : AppCompatActivity() {
             }
 
             db = FirebaseDatabase.getInstance().reference
-            val nomeFire = db.child("Userss").child(getIdUsuario())
+            val nomeFire = db.child("Userss").child(firebase.getIdUsuario())
             nomeFire.setValue(usuario)
 
         }
-    }
-
-    fun getIdUsuario(): String {
-        return auth.currentUser!!.uid
     }
 
 }
